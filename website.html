@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Connected Lines</title>
+  <style>
+    /* Base styling */
+    body {
+      background-color: rgb(17, 17, 17);
+      margin: 0;
+      height: 100vh;
+    }
+
+    .head-container{
+      display: flex;
+      height: 10%;
+      width: 100%;
+      background-color: rgb(17, 17, 17);
+    }
+
+    .head-element{
+      font-family: 'Crimson Text', regular;
+      color: white;
+      font-size: 4vw;
+    }
+    
+    .home-button{
+      letter-spacing: -10px;
+    }
+
+    /* Styling for lines */
+    .line {
+      height: 2px;
+      background-color: white;
+      position: fixed;
+    }
+
+    .first-white-line {
+      width: 20%;
+      top: 80%;
+      left: 0;
+    }
+
+    .second-white-line {
+      width: 19%;
+      transform-origin: left;
+      transform: rotate(-70deg);
+    }
+
+    .third-white-line {
+      width: 19%;
+      transform-origin: left;
+      transform: rotate(70deg);
+    }
+    
+    .fourth-white-line {
+      width: 5%;
+      top: 80%;
+      left: 33%;
+    }
+
+    .fifth-white-line {
+      width: 33%;
+      transform-origin: left;
+      transform: rotate(-70deg);
+    }
+
+    .sixth-white-line {
+      width: 33%;
+      transform-origin: left;
+      transform: rotate(70deg);
+    }
+    
+    .seventh-white-line {
+      width: 5%;
+      top: 80%;
+      left: 60.5%; 
+    }
+
+    .eight-white-line {
+      width: 20%;
+      transform-origin: left;
+      transform: rotate(-70deg);
+    }
+
+    .ninth-white-line {
+      width: 20%;
+      transform-origin: left;
+      transform: rotate(70deg);
+    }
+
+    .tenth-white-line{
+      width: 25%;
+      top: 80%;
+      left: 79%; 
+    }
+    @media (max-width: 1200px){
+      .home-button{
+        letter-spacing: 0px;
+      }
+
+    }
+
+  </style>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Line elements -->
+  <div class="head-container">
+    <div class="home-button head-element">MVO</div>
+  </div>
+  <div class="line first-white-line"></div>
+  <div class="line second-white-line"></div>
+  <div class="info-button" id="button-one"></div>
+  <div class="line third-white-line"></div>
+  <div class="line fourth-white-line"></div>
+  <div class="line fifth-white-line"></div>
+  <div class="info-button" id="button-two"></div>
+  <div class="line sixth-white-line"></div>
+  <div class="line seventh-white-line"></div>
+  <div class="line eight-white-line"></div>
+  <div class="info-button" id="button-three"></div>
+  <div class="line ninth-white-line"></div>
+  <div class="line tenth-white-line"></div>
+
+  <script>
+    function moveIntroBox() {
+        const blackBox = document.querySelector('.moving-intro-box');
+        let position = 0;
+        while (position <= 100) {
+            position++;
+            blackBox.style.left = `${position}%`;
+            setTimeout(100);
+        }
+        
+    }
+    // Function to dynamically position lines
+    function positionLines() {
+      const firstLine = document.querySelector('.first-white-line');
+      const secondLine = document.querySelector('.second-white-line');
+      const thirdLine = document.querySelector('.third-white-line');
+      const fourthLine = document.querySelector('.fourth-white-line');
+      const fifthLine = document.querySelector('.fifth-white-line');
+      const sixthLine = document.querySelector('.sixth-white-line');
+      const seventhLine = document.querySelector('.seventh-white-line');
+      const eighthLine = document.querySelector('.eight-white-line');
+      const ninthLine = document.querySelector('.ninth-white-line');
+      const infoOne = document.querySelector('#button-one');
+      const infoTwo = document.querySelector('#button-two');
+      const infoThree = document.querySelector('#button-three');
+
+      // Position the second and third lines based on the first line
+      const firstLineRect = firstLine.getBoundingClientRect();
+      const firstLineEndX = firstLineRect.right;
+      const firstLineEndY = firstLineRect.top;
+
+      secondLine.style.left = `${firstLineEndX}px`;
+      secondLine.style.top = `${firstLineEndY}px`;
+
+      // Calculate the end of the second line
+      const angleSecond = -70 * (Math.PI / 180);
+      const secondLineEndX = firstLineEndX + Math.cos(angleSecond) * secondLine.offsetWidth;
+      const secondLineEndY = firstLineEndY + Math.sin(angleSecond) * secondLine.offsetWidth;
+
+      thirdLine.style.left = `${secondLineEndX}px`;
+      thirdLine.style.top = `${secondLineEndY}px`;
+      
+
+      // Position the fifth and sixth lines based on the fourth line
+      const fourthLineRect = fourthLine.getBoundingClientRect();
+      const fourthLineEndX = fourthLineRect.right;
+      const fourthLineEndY = fourthLineRect.top;
+
+      fifthLine.style.left = `${fourthLineEndX}px`;
+      fifthLine.style.top = `${fourthLineEndY}px`;
+
+      // Calculate the end of the fifth line
+      const angleFifth = -70 * (Math.PI / 180);
+      const fifthLineEndX = fourthLineEndX + Math.cos(angleFifth) * fifthLine.offsetWidth;
+      const fifthLineEndY = fourthLineEndY + Math.sin(angleFifth) * fifthLine.offsetWidth;
+
+      sixthLine.style.left = `${fifthLineEndX}px`;
+      sixthLine.style.top = `${fifthLineEndY}px`;
+
+      // Position the eighth and ninth lines based on the seventh line
+      const seventhLineRect = seventhLine.getBoundingClientRect();
+      const seventhLineEndX = seventhLineRect.right;
+      const seventhLineEndY = seventhLineRect.top;
+
+      eighthLine.style.left = `${seventhLineEndX}px`;
+      eighthLine.style.top = `${seventhLineEndY}px`;
+
+      // Calculate the end of the eighth line
+      const angleEighth = -70 * (Math.PI / 180);
+      const eighthLineEndX = seventhLineEndX + Math.cos(angleEighth) * eighthLine.offsetWidth;
+      const eighthLineEndY = seventhLineEndY + Math.sin(angleEighth) * eighthLine.offsetWidth;
+
+      ninthLine.style.left = `${eighthLineEndX}px`;
+      ninthLine.style.top = `${eighthLineEndY}px`;
+    }
+
+    // Initial positioning
+    positionLines();
+    
+    // Reposition lines on window resize for responsiveness
+    window.addEventListener('resize', positionLines);
+  </script>
+</body>
+</html>
