@@ -93,7 +93,21 @@
     .tenth-white-line{
       width: 25%;
       top: 80%;
-      left: 79%; 
+      left: 79.1%; 
+    }
+
+    .info-button{
+      position: absolute;
+      width: 15px;            
+      height: 15px;           
+      background-color: white;  
+      border-radius: 50%;   
+      opacity: 0;   
+    }
+
+    .info-button:hover{
+      opacity: 1;
+      cursor: pointer;
     }
     @media (max-width: 1200px){
       .home-button{
@@ -148,6 +162,7 @@
       const seventhLine = document.querySelector('.seventh-white-line');
       const eighthLine = document.querySelector('.eight-white-line');
       const ninthLine = document.querySelector('.ninth-white-line');
+      const tenthLine = document.querySelector('tenth-white-line');
       const infoOne = document.querySelector('#button-one');
       const infoTwo = document.querySelector('#button-two');
       const infoThree = document.querySelector('#button-three');
@@ -164,6 +179,9 @@
       const angleSecond = -70 * (Math.PI / 180);
       const secondLineEndX = firstLineEndX + Math.cos(angleSecond) * secondLine.offsetWidth;
       const secondLineEndY = firstLineEndY + Math.sin(angleSecond) * secondLine.offsetWidth;
+
+      infoOne.style.left = `${secondLineEndX - 8}px`
+      infoOne.style.top = `${secondLineEndY - 4}px`;
 
       thirdLine.style.left = `${secondLineEndX}px`;
       thirdLine.style.top = `${secondLineEndY}px`;
@@ -182,6 +200,9 @@
       const fifthLineEndX = fourthLineEndX + Math.cos(angleFifth) * fifthLine.offsetWidth;
       const fifthLineEndY = fourthLineEndY + Math.sin(angleFifth) * fifthLine.offsetWidth;
 
+      infoTwo.style.left = `${fifthLineEndX - 8}px`
+      infoTwo.style.top = `${fifthLineEndY - 4}px`;
+
       sixthLine.style.left = `${fifthLineEndX}px`;
       sixthLine.style.top = `${fifthLineEndY}px`;
 
@@ -198,8 +219,12 @@
       const eighthLineEndX = seventhLineEndX + Math.cos(angleEighth) * eighthLine.offsetWidth;
       const eighthLineEndY = seventhLineEndY + Math.sin(angleEighth) * eighthLine.offsetWidth;
 
+      infoThree.style.left = `${eighthLineEndX - 8}px`
+      infoThree.style.top = `${eighthLineEndY - 4}px`;
+
       ninthLine.style.left = `${eighthLineEndX}px`;
       ninthLine.style.top = `${eighthLineEndY}px`;
+
     }
 
     // Initial positioning
