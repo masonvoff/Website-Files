@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Responsive Connected Lines</title>
+  <title>Mason Offutt Home</title>
   <style>
     /* Base styling */
     body {
-      background-color: rgb(17, 17, 17);
+      background-color: rgb(25, 25, 25);
       margin: 0;
       height: 100vh;
     }
@@ -16,7 +16,7 @@
       display: flex;
       height: 10%;
       width: 100%;
-      background-color: rgb(17, 17, 17);
+      background-color: rgb(25, 25, 25);
     }
 
     .head-element{
@@ -109,6 +109,25 @@
       opacity: 1;
       cursor: pointer;
     }
+    .lower-text-container {
+      position: absolute;
+      height: 10vh;
+      width: 20vw;
+      bottom: 0; 
+      left: 50%; 
+      transform: translateX(-50%); 
+      display: flex;
+      justify-content: center;
+      align-items: center; 
+    }
+
+    .lower-hint{
+      position: absolute;
+      font-family: 'Crimson Text', regular;
+      color: gray;
+      font-size: 1.5vw;
+    }
+
     @media (max-width: 1200px){
       .home-button{
         letter-spacing: 0px;
@@ -128,17 +147,21 @@
   </div>
   <div class="line first-white-line"></div>
   <div class="line second-white-line"></div>
-  <div class="info-button" id="button-one"></div>
+  <a href= "about_me.html" class="info-button" id="button-one"></a>
   <div class="line third-white-line"></div>
   <div class="line fourth-white-line"></div>
   <div class="line fifth-white-line"></div>
-  <div class="info-button" id="button-two"></div>
+  <a href= "resume.html" class="info-button" id="button-two"></a>
   <div class="line sixth-white-line"></div>
   <div class="line seventh-white-line"></div>
   <div class="line eight-white-line"></div>
-  <div class="info-button" id="button-three"></div>
+  <a href= "portfolio.html" class="info-button" id="button-three"></a>
   <div class="line ninth-white-line"></div>
   <div class="line tenth-white-line"></div>
+  <div class="lower-text-container">
+    <p class="lower-hint">pssst click on the mountain tops</p>
+  </div>
+  
 
   <script>
     function moveIntroBox() {
