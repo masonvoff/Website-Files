@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+        background-color: rgb(25, 25, 25);
+        margin: 0;
+        height: 100vh;
+        }
+
+        .head-container {
+            display: flex;
+            position: fixed; 
+            top: 0; 
+            height: 8%;
+            width: 50%;
+            background-color: rgb(25, 25, 25);
+            z-index: 1000; 
+        }
+
+        .head-element {
+            font-family: 'Crimson Text', regular;
+            color: white;
+            font-size: 4vw;
+        }
+
+        .home-button {
+            letter-spacing: -10px;
+            text-decoration: none;
+        }
+        .text-items-container {
+            display: flex;
+            position: fixed; 
+            top: 0; 
+            height: 5.8%;
+            width: 50%;
+            background-color: rgb(25, 25, 25);
+            padding-top: 20px;
+            z-index: 1000; 
+            left: 50%;
+            justify-content: space-evenly;
+        }
+        
+        .text-item{
+            font-family: 'Crimson Text', regular;
+            color: gray;
+            font-size: 2vw;
+            text-decoration: none;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        /* Hidden dropdown content */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            top: 100%; /* Position below the "More" text */
+            min-width: 150px; /* Optional: Adjust width */
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+
+        /* Dropdown links */
+        .dropdown-content a {
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* Show dropdown on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Hover effect for dropdown links */
+        .dropdown-content a:hover {
+            background-color: #555;
+        }
+
+        .tile-container {
+            display: flex;
+            flex-direction: column;
+            max-width: 80vw;
+            margin: 0 auto;
+            margin-top: 100px;
+            height: 100%;
+            justify-content: center;
+            gap: 100px;
+            align-items: center;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+/* Gradient Background with Blur and Rotation */
+        .tile-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: conic-gradient(from 180deg, #717FEB, #70A5EB, #4DEBE0, #717FEB);
+            filter: blur(20px); /* Blur effect */
+            z-index: -1;
+            border-radius: inherit;
+            animation: rotateColors 15s linear infinite; /* Keyframes for color rotation */
+            background-size: 200% 200%; /* Ensures smooth color blending */
+        }
+
+/* Rotate the gradient colors */
+        @keyframes rotateColors {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+
+
+
+/* Individual tile styling */
+        .tile {
+            display: flex;
+            align-items: center;
+            background-color: transparent; /* Background color for tile */
+            padding: 20px;
+            border-radius: 12px;     /* Rounds the edges of each tile */
+            box-shadow: 16px 16px 16px 16px rgba(0, 0, 0, 0.1); /* Tile shadow */
+            gap: 20px;               /* Space between image and text */
+            max-width: 800px;
+        }
+
+        /* Image styling */
+        .tile-image {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* Text styling */
+        .tile-text h3 {
+            font-size: 1.5em;
+            margin: 0 0 10px;
+        }
+
+        .tile-text p {
+            font-size: 1em;
+            margin: 0;
+            color: #333;
+        }
+
+        /* Reverse order for even-numbered tiles */
+        .tile.reverse {
+            flex-direction: row-reverse;
+        }
+
+        #tile_container_2{
+            left: 100%;
+        }
+         .tile.slide-out-left {
+            transform: translateX(-100%);
+        }
+
+        .tile.slide-in-right {
+            transform: translateX(100%);
+        }
+
+        .tile.slide-out-right {
+            transform: translateX(300%);
+        }
+
+        .tile.slide-in-left {
+            transform: translateX(-100%);
+        }
+        .tile.up{
+            transform: translateY(-100%);
+        }
+        .tile.down{
+            transform: translateY(100%);
+        }
+        
+        .arrow-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            border-radius: 50%;
+            z-index: 10;
+        }
+
+        .arrow-button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+
+
+
+
+
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="head-container">
+        <a href="website.html" class="home-button head-element">MVO</a>
+    </div>
+    <div class="text-items-container">
+      <a href="resume.html" class="text-item head-element">Resume</a>
+      <a href="portfolio.html" class="text-item head-element">Portfolio</a>
+      <div class="text-item head-element dropdown">
+        More
+        <div class="dropdown-content">
+            <a href="https://www.linkedin.com/in/mason-o-14534b294/">LinkedIn</a>
+            <a href="https://github.com/masonvoff">Github</a>
+            <a href="#services">Services</a>
+        </div>
+    </div>
+  </div>
+
+  <div id="tile_container_1"  class="tile-container">
+    <!-- First Tile (Image on Left, Text on Right) -->
+    <button id="leftArrow" class="arrow-button" style="left: 10px;">&#9664;</button>
+    <div id="tile1"  class="tile">
+        <img src="14954.jpg" alt="Tile 1 Image" class="tile-image">
+        <div class="tile-text">
+            <h3>Tile 1 Title</h3>
+            <p>This is a description for tile 1.</p>
+        </div>
+    </div>
+
+    <!-- Second Tile (Text on Left, Image on Right) -->
+    <div id="tile2" class="tile reverse">
+        <img src="unnamed.jpg" alt="Tile 2 Image" class="tile-image">
+        <div class="tile-text">
+            <h3>Tile 2 Title</h3>
+            <p>This is a description for tile 2</p>
+        </div>
+    </div>
+
+    <!-- Third Tile (Image on Left, Text on Right) -->
+    
+ 
+        <!-- First Tile (Image on Left, Text on Right) -->
+        <div id="tile3" class="tile">
+            <img src="14954.jpg" alt="Tile 1 Image" class="tile-image">
+            <div class="tile-text">
+                <h3>Tile 1 Title</h3>
+                <p>This is a description for tile 1.</p>
+            </div>
+        </div>
+    
+        <!-- Second Tile (Text on Left, Image on Right) -->
+        <div id="tile4" class="tile reverse">
+            <img src="unnamed.jpg" alt="Tile 2 Image" class="tile-image">
+            <div class="tile-text">
+                <h3>Tile 2 Title</h3>
+                <p>This is a description for tile 2</p>
+            </div>
+        </div>
+        <button id="rightArrow" class="arrow-button" style="right: 10px;">&#9658;</button>
+        <!-- Third Tile (Image on Left, Text on Right) -->
+    </div>
+
+<script>
+    const tile1 = document.getElementById('tile1');
+    const tile2 = document.getElementById('tile2');
+    const tile3 = document.getElementById('tile3');
+    const tile4 = document.getElementById('tile4');
+
+    let shownset = 1;
+
+    tile1.classList.add('down');
+    tile2.classList.add('down');
+    tile3.classList.add('slide-out-right');
+    tile4.classList.add('slide-out-right');
+
+
+    document.getElementById('leftArrow').addEventListener('click', () => {
+        if (shownset !== 1){
+            shownset--;
+
+            tile1.classList.remove('slide-out-right', 'slide-in-right', 'slide-out-left', 'slide-in-left', 'down', 'up');
+            tile2.classList.remove('slide-out-right', 'slide-in-right', 'slide-out-left', 'slide-in-left', 'down', 'up');
+            tile3.classList.remove('slide-out-right', 'slide-in-right', 'slide-out-left', 'slide-in-left', 'down', 'up');
+            tile4.classList.remove('slide-out-right', 'slide-in-right', 'slide-out-left', 'slide-in-left', 'down', 'up');
+
+            tile1.classList.add('slide-out-left');
+            tile2.classList.add('slide-out-left');
+            tile3.classList.add('slide-out-left');
+            tile4.classList.add('slide-out-left');
+        }
+            
+});
+    document.getElementById('rightArrow').addEventListener('click', () => {
+            if (shownset !== 4){
+                shownset++;
+
+                tile1.classList.remove('slide-out-right', 'slide-in-right', 'slide-out-left', 'slide-in-left', 'down', 'up');
+                tile2.classList.remove('slide-out-right', 'slide-in-right', 'slide-out-left', 'slide-in-left', 'down', 'up');
+                tile3.classList.remove('slide-out-right', 'slide-in-right', 'slide-out-left', 'slide-in-left', 'down', 'up');
+                tile4.classList.remove('slide-out-right', 'slide-in-right', 'slide-out-left', 'slide-in-left', 'down', 'up');
+
+                tile1.classList.add('slide-out-right');
+                tile2.classList.add('slide-out-right');
+                tile3.classList.add('slide-in-right');
+                tile4.classList.add('slide-in-right');
+            }
+                
+    });
+
+</script>
+
+</body>
+</html>
