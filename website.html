@@ -128,6 +128,44 @@
       font-size: 1.5vw;
     }
 
+    /* Your existing styles remain unchanged */
+    #first-text, #second-text, #third-text {
+      font-family: 'Crimson Text', regular;
+      font-size: 2vw;
+      color: transparent;
+      -webkit-text-stroke: 3px transparent;
+      position: relative;
+    }
+
+    #first-text::before, #second-text::before, #third-text::before {
+      content: "About Me";
+      position: absolute;
+      width: 0%;
+      height: 100%;
+      overflow: hidden;
+      color: white;
+      border-right: 8px solid transparent;
+      transition: 1s ease-in-out;
+    }
+
+    /* Add this class for the animation */
+    #first-text.hover-animation::before, 
+    #second-text.hover-animation::before, 
+    #third-text.hover-animation::before {
+      width: 16vw; /* Expands to reveal text */
+      filter: drop-shadow(0 0 25px white);
+    }
+
+    #second-text::before {
+      content: "Resume";
+    }
+
+    #third-text::before {
+      content: "Portfolio";
+    }
+
+
+
     @media (max-width: 1200px){
       .home-button{
         letter-spacing: 0px;
@@ -148,14 +186,17 @@
   <div class="line first-white-line"></div>
   <div class="line second-white-line"></div>
   <a href= "about_me.html" class="info-button" id="button-one"></a>
+  <h2 id= "first-text" class="hover-text">About Me</h2>
   <div class="line third-white-line"></div>
   <div class="line fourth-white-line"></div>
   <div class="line fifth-white-line"></div>
   <a href= "resume.html" class="info-button" id="button-two"></a>
+  <h2 id= "second-text" class="hover-text">Resume</h2>
   <div class="line sixth-white-line"></div>
   <div class="line seventh-white-line"></div>
   <div class="line eight-white-line"></div>
   <a href= "portfolio.html" class="info-button" id="button-three"></a>
+  <h2 id= "third-text" class="hover-text">Portfolio</h2>
   <div class="line ninth-white-line"></div>
   <div class="line tenth-white-line"></div>
   <div class="lower-text-container">
@@ -164,6 +205,23 @@
   
 
   <script>
+    const buttons = document.querySelectorAll('.info-button');
+    const texts = document.querySelectorAll('.hover-text');
+
+    // Ensure the mapping between buttons and texts is correct
+    buttons.forEach((button, index) => {
+      const correspondingText = texts[index];
+
+      // Add hover event listeners
+      button.addEventListener('mouseover', () => {
+        correspondingText.classList.add('hover-animation');
+      });
+
+      button.addEventListener('mouseout', () => {
+        correspondingText.classList.remove('hover-animation');
+      });
+    });
+
     function moveIntroBox() {
         const blackBox = document.querySelector('.moving-intro-box');
         let position = 0;
@@ -189,6 +247,9 @@
       const infoOne = document.querySelector('#button-one');
       const infoTwo = document.querySelector('#button-two');
       const infoThree = document.querySelector('#button-three');
+      const firstText = document.querySelector('#first-text');
+      const secondText = document.querySelector('#second-text');
+      const thirdText = document.querySelector('#third-text');
 
       // Position the second and third lines based on the first line
       const firstLineRect = firstLine.getBoundingClientRect();
@@ -203,8 +264,24 @@
       const secondLineEndX = firstLineEndX + Math.cos(angleSecond) * secondLine.offsetWidth;
       const secondLineEndY = firstLineEndY + Math.sin(angleSecond) * secondLine.offsetWidth;
 
-      infoOne.style.left = `${secondLineEndX - 8}px`
+      infoOne.style.left = `${secondLineEndX - 8}px`;
       infoOne.style.top = `${secondLineEndY - 4}px`;
+
+// Calculate button dimensions
+      const buttonLeft = parseFloat(infoOne.style.left) || 0;
+      const buttonTop = parseFloat(infoOne.style.top) || 0;
+      const buttonWidth = infoOne.offsetWidth || 15; // Default width for the button
+      const buttonHeight = infoOne.offsetHeight || 15; // Default height for the button
+
+      // Calculate text dimensions
+      const firstTextWidth = firstText.offsetWidth || 100; // Provide a fallback
+      const firstTextHeight = firstText.offsetHeight || 20; // Provide a fallback
+
+      // Position text above the button
+      firstText.style.position = 'absolute'; // Ensure absolute positioning
+      firstText.style.left = `${buttonLeft + buttonWidth / 2 - firstTextWidth / 2}px`; // Center-align horizontally
+      firstText.style.top = `${buttonTop - firstTextHeight - 30}px`; // Place directly above the button
+
 
       thirdLine.style.left = `${secondLineEndX}px`;
       thirdLine.style.top = `${secondLineEndY}px`;
@@ -226,6 +303,20 @@
       infoTwo.style.left = `${fifthLineEndX - 8}px`
       infoTwo.style.top = `${fifthLineEndY - 4}px`;
 
+      const buttonTwoLeft = parseFloat(infoTwo.style.left) || 0;
+      const buttonTwoTop = parseFloat(infoTwo.style.top) || 0;
+      const buttonTwoWidth = infoTwo.offsetWidth || 15; // Default width for the button
+      const buttonTwoHeight = infoTwo.offsetHeight || 15; // Default height for the button
+
+      const secondTextWidth = secondText.offsetWidth || 100; // Provide a fallback
+      const secondTextHeight = secondText.offsetHeight || 20; // Provide a fallback
+
+      secondText.style.position = 'absolute';
+      secondText.style.left = `${buttonTwoLeft + buttonTwoWidth / 2 - secondTextWidth / 2}px`; // Center-align horizontally
+      secondText.style.top = `${buttonTwoTop - secondTextHeight - 30}px`; // Place directly above the button
+
+
+
       sixthLine.style.left = `${fifthLineEndX}px`;
       sixthLine.style.top = `${fifthLineEndY}px`;
 
@@ -245,10 +336,23 @@
       infoThree.style.left = `${eighthLineEndX - 8}px`
       infoThree.style.top = `${eighthLineEndY - 4}px`;
 
+      const buttonThreeLeft = parseFloat(infoThree.style.left) || 0;
+      const buttonThreeTop = parseFloat(infoThree.style.top) || 0;
+      const buttonThreeWidth = infoThree.offsetWidth || 15; // Default width for the button
+      const buttonThreeHeight = infoThree.offsetHeight || 15; // Default height for the button
+
+      const thirdTextWidth = thirdText.offsetWidth || 100; // Provide a fallback
+      const thirdTextHeight = thirdText.offsetHeight || 20; // Provide a fallback
+
+      thirdText.style.position = 'absolute';
+      thirdText.style.left = `${buttonThreeLeft + buttonThreeWidth / 2 - thirdTextWidth / 2}px`; // Center-align horizontally
+      thirdText.style.top = `${buttonThreeTop - thirdTextHeight - 30}px`; // Place directly above the button
+
       ninthLine.style.left = `${eighthLineEndX}px`;
       ninthLine.style.top = `${eighthLineEndY}px`;
 
     }
+
 
     // Initial positioning
     positionLines();
@@ -256,6 +360,8 @@
     // Reposition lines on window resize for responsiveness
     window.addEventListener('resize', positionLines);
     window.addEventListener('load', positionLines);
+    window.addEventListener('visibilitychange', positionLines);
+    window.addEventListener('blur', positionLines);
   </script>
 </body>
 </html>
