@@ -27,7 +27,7 @@ var snowRefresh = 25;
 // Additional Styles
 var snowStyles = "cursor: default; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; -o-user-select: none; user-select: none;";
 
-// Initialize mouse position
+// Initialize mouse position and radius of repulsion
 var mouseX = -1;
 var mouseY = -1;
 var mouseRepulseRadius = 250;

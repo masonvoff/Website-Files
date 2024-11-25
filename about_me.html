@@ -4,234 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        body {
-            background-color: rgb(25, 25, 25);
-            margin: 0;
-            height: 100vh;
-        }
-
-        .head-container {
-            display: flex;
-            position: fixed; 
-            top: 0; 
-            height: 8%;
-            width: 50%;
-            background-color: rgb(25, 25, 25);
-            z-index: 1000; 
-        }
-
-        .head-element {
-            font-family: 'Crimson Text', regular;
-            color: white;
-            font-size: 4vw;
-        }
-
-        .home-button {
-            letter-spacing: -10px;
-            text-decoration: none;
-        }
-        .text-items-container {
-            display: flex;
-            position: fixed; 
-            top: 0; 
-            height: 5.8%;
-            width: 50%;
-            background-color: rgb(25, 25, 25);
-            padding-top: 20px;
-            z-index: 1000; 
-            left: 50%;
-            justify-content: space-evenly;
-        }
-        
-        .text-item{
-            font-family: 'Crimson Text', regular;
-            color: gray;
-            font-size: 2vw;
-            text-decoration: none;
-        }
-
-        .dropdown {
-            position: relative;
-        }
-
-        /* Hidden dropdown content */
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #333;
-            top: 100%; /* Position below the "More" text */
-            min-width: 150px; /* Optional: Adjust width */
-            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-            z-index: 1000;
-        }
-
-        /* Dropdown links */
-        .dropdown-content a {
-            color: white;
-            padding: 10px 15px;
-            text-decoration: none;
-            display: block;
-        }
-
-        /* Show dropdown on hover */
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        /* Hover effect for dropdown links */
-        .dropdown-content a:hover {
-            background-color: #555;
-        }
-
-        .tile-container {
-            display: flex;
-            flex-direction: column;
-            max-width: 80vw;
-            margin: 0 auto;
-            margin-top: 100px;
-            height: 100%;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            border-radius: 16px;
-            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
-            position: relative;
-            overflow: hidden;
-        }
-
-/* Gradient Background with Blur and Rotation */
-        .tile-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: conic-gradient(from 180deg, #717FEB, #70A5EB, #4DEBE0, #717FEB);
-            filter: blur(20px); /* Blur effect */
-            z-index: -1;
-            border-radius: inherit;
-            animation: rotateColors 15s linear infinite alternate; /* Keyframes for color rotation */
-            background-size: 200% 200%; /* Ensures smooth color blending */
-        }
-
-/* Rotate the gradient colors */
-        @keyframes rotateColors {
-            0% {
-                background-position: 0% 50%;
-            }
-            100% {
-                background-position: 100% 50%;
-            }
-        }
- 
-        .arrow-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 10px;
-            font-size: 24px;
-            cursor: pointer;
-            border-radius: 50%;
-            z-index: 10;
-        }
-
-        .arrow-button:hover {
-            background-color: rgba(0, 0, 0, 0.7);
-        }
-
-        .cover {
-            position: relative;
-            padding: 0px 30px;
-            margin-top: 100px;
-        }
-
-        .left {
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .right {
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .scroll-images {
-            position: relative;
-            width: 100%;
-            padding: 40px 0px;
-            gap: 20vw;
-            height: 80%;
-            display: flex;
-            flex-wrap: nowrap;
-            overflow-x: hidden;
-            overflow-y: hidden;
-            scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .child {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-width: 60vw;
-            height: 80%;
-            border: 1px solid #f1f1f1;
-            overflow: hidden;
-            -webkit-box-shadow: 0px 0px 15px 2px rgb(0 0 0 / 10%);;
-            box-shadow: 0px 0px 15px 2px rgb(0 0 0 / 10%);;
-            transform: translateX(10vw);
-        }
-
-        .child img{
-            position: absolute;
-            margin-top: -200px;
-            width: auto;
-            height: auto; 
-            max-height: 40vh; 
-            object-fit: cover; 
-            object-position: center; 
-            background: #03A9F4;
-        }
-
-        .child h4{
-          margin-top: 200px;
-        }
-
-        .scroll-images::-webkit-scrollbar {
-            width: 30vw;
-            height: 30vh;
-            background-color: #aaa;
-        }
-
-        .scroll-images::-webkit-scrollbar-thumb {
-            background-color: black;
-        }
-
-        button {
-            background-color: transparent;
-            border: none;
-            outline: none;
-            cursor: pointer;
-            font-size: 25px;
-        }
-
-
-
-
-
-    </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS Files/style_about_me.css">
 </head>
 <body>
 
@@ -250,43 +26,57 @@
         </div>
     </div>
   </div>
-
+  <h2 class="intro-text">Learn a little about me below</h2>
   <div id="tile_container_1"  class="tile-container">
     <!-- First Tile (Image on Left, Text on Right) -->
     <button id="leftArrow" class="arrow-button" style="left: 10px;">&#9664;</button>
         <div class="scroll-images">
           <div class="child">
             <img src="Pictures/grad pic 2.jpg" alt="My graduation picture" />
-            <h4>Card 1</h4>
+            <h4>This is a picture for my graduation from the University of Miami, I graduated
+              on May 10th 2024.  UM was my dream university and I am very thankful that I had the opportunity to attend.
+              I originaly started college at CU Denver but knew that Miami is where I wanted to be.
+            </h4>
           </div>
           <div class="child">
             <img src="Pictures/me and avery.jpg" alt="Me and my niece" />
             </svg>
-            <h4>Card 2</h4>
+            <h4>This is my neice Avery she was born in september of 2023.
+                This is a picutre of one of the first times I was able to hold her.</h4>
           </div>
           <div class="child">
               <img src="Pictures/basketball 2.jpg" alt="Me playing basketball" />
-            <h4>Card 3</h4>
+            <h4>This is a picture of me playing basketball in highschool, I don't 
+              follow the sport much anymore, but I still like to play from time to time.
+            </h4>
           </div>
           <div class="child">
             <img src="Pictures/sphere ufc.jpg" alt="Ufc sphere" />
-            <h4>Card 4</h4>
+            <h4>This is a photo from my trip to the sphere, my friend, father, and I 
+              went to UFC 306 in the sphere in Las Vegas.  MMA is my favorite sport currently
+            and this was a one time event so we made sure to be there.
+            </h4>
           </div>
           <div class="child">
             <img src="Pictures/cote.jpg" alt="Cote resturant" />
-            <h4>Card 5</h4>
+            <h4>This picture comes from Cote my favorite resturant, it is located in Miami.
+              This was for my graduation dinner with many of my friends.
+            </h4>
           </div>
           <div class="child">
             <img src="Pictures/disney castle.jpg" alt="Disney castle" />
-            <h4>Card 6</h4>
+            <h4>This is a photo of me and my girlfriend at Disney World for the 50th aniversary.</h4>
           </div>
           <div class="child">
             <img src="Pictures/jamacia.jpg" alt="Sister wedding" />
-            <h4>Card 7</h4>
+            <h4>this is me and my girlfriend once again, this was taken while we were in Jamacia 
+              for my sisters wedding.</h4>
           </div>
           <div class="child">
             <img src="Pictures/mexico.jpg" alt="family in mexico" />
-            <h4>Card 8</h4>
+            <h4>This photo comes from a family trip to Mexico that my extended family and I went
+              on in 2018.
+            </h4>
           </div>
           <div class="child">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-9-circle-fill" viewBox="0 0 16 16">
@@ -298,55 +88,7 @@
         <button id="rightArrow" class="arrow-button" style="right: 10px;">&#9658;</button>
       </div>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-  const scrollImages = document.querySelector(".scroll-images");
-  const cards = document.querySelectorAll(".child");
-  const cardWidth = cards[0].offsetWidth + 20; // Including margin if any
-  const totalCards = cards.length-1; //temporary fix because of 9th displaying offset
-  let currentCardIndex = 0;
-
-  // Update button states based on the current card index
-  function updateButtonState() {
-    document.getElementById("leftArrow").disabled = currentCardIndex === 0;
-    document.getElementById("rightArrow").disabled = currentCardIndex === totalCards - 1;
-  }
-
-  // Scroll to the specified card index
-  function scrollToCard(index) {
-    const cardWidth = document.querySelector('.child').offsetWidth; // Get the actual card width
-    const gapWidth = 0.2 * window.innerWidth; // Convert 20vw to pixels
-    const cardWidthWithGap = cardWidth + gapWidth; // Total space needed for each card + gap
-    
-    // Adjust the scroll position by multiplying the index by card width + gap
-    scrollImages.scrollTo({
-        left: index * cardWidthWithGap,
-        behavior: "smooth"
-    });
-
-    currentCardIndex = index;
-    updateButtonState();
-}
-
-
-  document.getElementById("leftArrow").addEventListener("click", () => {
-    if (currentCardIndex > 0) {
-      scrollToCard(currentCardIndex - 1);
-    }
-  });
-
-  document.getElementById("rightArrow").addEventListener("click", () => {
-    if (currentCardIndex < totalCards - 1) {
-      scrollToCard(currentCardIndex + 1);
-    }
-  });
-
-  // Initial button state check
-  updateButtonState();
-});
-
-
-</script>
+<script src="JavaScript files/about_me.js"></script>
 
 </body>
 </html>
