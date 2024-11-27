@@ -1,7 +1,25 @@
 body {
-  background-color: rgb(25, 25, 25);
+  --dot-bg: rgb(25, 25, 25); /* Matches your existing background color */
+  --dot-color: gray; /* Dot color */
+  --dot-size: 5px; /* Size of the dots */
+  --dot-space: 22px; /* Spacing between dots */
+  
   margin: 0;
   height: 100vh;
+  background:
+    linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+    linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+    var(--dot-color); /* Dotted pattern */
+}
+
+.blur-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  backdrop-filter: blur(10px); /* Adjust the blur intensity */
+
 }
 
 .head-container {
@@ -18,6 +36,7 @@ body {
   font-family: 'Crimson Text', regular;
   color: white;
   font-size: 4vw;
+  transform: translateY(-1vh);
 }
 
 .home-button {
@@ -28,10 +47,9 @@ body {
   display: flex;
   position: fixed; 
   top: 0; 
-  height: 5.8%;
+  height: 8%;
   width: 50%;
   background-color: rgb(25, 25, 25);
-  padding-top: 20px;
   z-index: 1000; 
   left: 50%;
   justify-content: space-evenly;
@@ -42,6 +60,7 @@ body {
   color: gray;
   font-size: 2vw;
   text-decoration: none;
+  transform: translateY(1vh);
 }
 
 .dropdown {
@@ -102,7 +121,6 @@ transform: translateX(-50%) translateY(-10px);
   align-items: center;
   padding: 20px;
   border-radius: 16px;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
   position: relative;
   overflow: hidden;
 }
@@ -115,10 +133,8 @@ transform: translateX(-50%) translateY(-10px);
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(90deg, #717FEB, black);
-  z-index: -1;
+  background: transparent;
   border-radius: inherit;
-  animation: changeColors 40s step-end infinite, rotateColors 5s linear infinite alternate; 
   background-size: 500% 500%; 
 }
 
@@ -133,29 +149,8 @@ transform: translateX(-50%) translateY(-10px);
 }
 
 @keyframes changeColors {
-  0%, 12.5% {
-    background-image: linear-gradient(90deg, #1A1A1A, #232323); 
-  }
-  12.5%, 25% {
-    background-image: linear-gradient(90deg, #2D2D2D, #232323); 
-  }
-  25%, 37.5% {
-    background-image: linear-gradient(90deg, #2D2D2D, #373737); 
-  }
-  37.5%, 50% {
-    background-image: linear-gradient(90deg, #373737, #414141); 
-  }
-  50%, 62.5% {
-    background-image: linear-gradient(90deg, #414141 , #4B4B4B); 
-  }
-  62.5%, 75% {
-    background-image: linear-gradient(90deg, #4B4B4B, #555555); 
-  }
-  75%, 87.5% {
-    background-image: linear-gradient(90deg, #555555, #5F5F5F); 
-  }
-  87.5%, 100% {
-    background-image: linear-gradient(90deg, #5F5F5F, #696969); 
+  0%, 100% {
+    background-image: linear-gradient(90deg, black, #202020); 
   }
 }
 
@@ -185,15 +180,11 @@ transform: translateX(-50%) translateY(-10px);
 
 .left {
   position: absolute;
-  left: 0;
-  top: 50%;
   transform: translateY(-50%);
 }
 
 .right {
   position: absolute;
-  right: 0;
-  top: 50%;
   transform: translateY(-50%);
 }
 
@@ -217,13 +208,32 @@ transform: translateX(-50%) translateY(-10px);
   align-items: center;
   min-width: 60vw;
   height: 80%;
-  border: 1px solid #f1f1f1;
+  border-radius: 16px;
   overflow: hidden;
-  -webkit-box-shadow: 0px 0px 15px 2px rgb(0 0 0 / 10%);;
-  box-shadow: 0px 0px 15px 2px rgb(0 0 0 / 10%);;
-  transform: translateX(10vw);
+  -webkit-box-shadow: 0px 0px 15px 2px rgb(0 0 0 / 10%);
+  box-shadow: 0px 0px 15px 2px rgb(0 0 0 / 10%);
+  transform: translateX(10vw) translateY(10vh);
+  color: white;
+  animation: changeColors 5s step-end infinite, rotateColors 5s ease-out infinite alternate;
+  background-size: 500% 500%;
 }
 
+/* Rotate the gradient colors */
+@keyframes rotateColors {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Change the gradient colors */
+@keyframes changeColors {
+  0%, 100% {
+    background-image: linear-gradient(90deg, black, #000026); /* First color set */
+  }
+}
 .child img{
   position: absolute;
   margin-top: -200px;
@@ -232,12 +242,12 @@ transform: translateX(-50%) translateY(-10px);
   max-height: 40vh; 
   object-fit: cover; 
   object-position: center; 
-  background: #03A9F4;
+  border-radius: 16px;
 }
 
 .child h4{
-margin-top: 300px;
-max-width: 60%;
+  margin-top: 300px;
+  max-width: 60%;
 }
 
 .scroll-images::-webkit-scrollbar {
