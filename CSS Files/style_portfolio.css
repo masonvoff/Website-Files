@@ -1,16 +1,90 @@
 body {
-    background-color: rgb(25, 25, 25);
+    position: relative;
+    z-index: -1;
     margin: 0;
     height: 100vh;
-}
+    background: rgb(15, 15, 15); /* Base background color */
+    font-size: 5vmin;
+    color: transparent;
+  }
+  
+  /* Dot Effect on Pseudo-elements  https://codepen.io/hylobates-lar/pen/bGEQXgm */
+  body::before,
+  body::after {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 3em;
+    height: 3em;
+    content: '.';
+    mix-blend-mode: screen;
+    animation: move infinite ease-in-out alternate;
+    z-index: -1;
+  }
+  
+  /* Add the dots effect with varying delays */
+  body::before {
+    text-shadow: var(--dots);
+    animation-duration: 44s;
+    animation-delay: -27s;
+  }
+  
+  body::after {
+    text-shadow: var(--dots);
+    animation-duration: 43s;
+    animation-delay: -32s;
+  }
+  
+  /* Keyframes for rotating and scaling movement */
+  @keyframes move {
+    from {
+      transform: rotate(0deg) scale(12) translateX(-20px);
+    }
+    to {
+      transform: rotate(360deg) scale(18) translateX(20px);
+    }
+  }
+  
+  /* Generating random dot positions and colors (manual inclusion of dots effect) */
+  :root {
+    --dots: 
+      -0.8em -0.5em 8px hsla(220, 100%, 20%, 0.8),
+      0.6em 0.3em 6px hsla(170, 90%, 25%, 0.9),
+      -0.3em 0.7em 7px hsla(120, 80%, 15%, 0.7),
+      0.9em -0.6em 9px hsla(270, 85%, 30%, 0.8),
+      0.2em 0.8em 6px hsla(310, 75%, 20%, 0.9),
+      -0.6em -0.8em 7px hsla(45, 90%, 25%, 0.85),
+      0.3em -0.9em 8px hsla(15, 95%, 10%, 0.9),
+      -0.4em 0.6em 5px hsla(10, 80%, 15%, 0.8),
+      0.5em -0.2em 7px hsla(60, 100%, 20%, 0.7),
+      -0.7em 0.4em 6px hsla(200, 85%, 25%, 0.9),
+      0.1em -0.4em 8px hsla(280, 80%, 30%, 0.8),
+      -0.5em 0.2em 6px hsla(90, 100%, 20%, 0.85),
+      0.7em 0.1em 5px hsla(140, 95%, 15%, 0.75),
+      -0.9em -0.3em 8px hsla(360, 100%, 25%, 0.9),
+      0.4em -0.7em 7px hsla(75, 90%, 20%, 0.8),
+      -0.1em 0.9em 6px hsla(190, 85%, 10%, 0.8),
+      0.8em -0.1em 9px hsla(230, 80%, 15%, 0.9);
+  }
+  
+  .blur-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    backdrop-filter: blur(10px); /* Adjust the blur intensity */
+    z-index: -1;
+  }
 
 .head-container {
     display: flex;
     position: fixed; 
     top: 0; 
+    padding: 0;
     height: 8%;
     width: 50%;
-    background-color: rgb(25, 25, 25);
+    background-color: transparent;
     z-index: 1000; 
 }
 
@@ -18,6 +92,7 @@ body {
     font-family: 'Crimson Text', regular;
     color: white;
     font-size: 4vw;
+    transform: translateY(-1vh);
 }
 
 .home-button {
@@ -28,10 +103,9 @@ body {
     display: flex;
     position: fixed; 
     top: 0; 
-    height: 5.8%;
+    height: 8%;
     width: 50%;
-    background-color: rgb(25, 25, 25);
-    padding-top: 20px;
+    background-color: transparent;
     z-index: 1000; 
     left: 50%;
     justify-content: space-evenly;
@@ -42,6 +116,7 @@ body {
     color: gray;
     font-size: 2vw;
     text-decoration: none;
+    transform: translateY(1vh);
 }
 
 .dropdown {
@@ -52,7 +127,7 @@ body {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #333;
+    background-color: transparent;
     top: 100%; 
     min-width: 150px; 
     box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
@@ -138,6 +213,7 @@ body {
     background-clip: padding-box;
     border-radius: 45px;
     padding: 40px;
+    height: 200px;
     img {
         margin-bottom: 32px;
     }
