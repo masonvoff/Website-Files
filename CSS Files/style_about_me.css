@@ -1,7 +1,7 @@
 body {
   --dot-bg: rgb(25, 25, 25);
-  --dot-color: gray; 
-  --dot-size: 5px; 
+  --dot-color: #3e0c0f; 
+  --dot-size: 3px; 
   --dot-space: 22px; 
   
   margin: 0;
@@ -9,9 +9,10 @@ body {
   background:
     linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
     linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
-    var(--dot-color); 
+    var(--dot-color); /* Dotted pattern */
 }
 
+/*
 .blur-overlay {
   position: absolute;
   top: 0;
@@ -21,6 +22,7 @@ body {
   backdrop-filter: blur(10px); 
 
 }
+  */
 
 .head-container {
   display: flex;
@@ -269,16 +271,19 @@ button {
 }
 
 .additional-text-container {
-  z-index: 1;
-  margin: 2rem auto;
-  padding: 1rem;
+  margin: 0;
+  padding: 50px;
   max-width: 800px;
   font-family: 'Crimson Text', serif;
   color: white;
   background-color: rgba(0, 0, 0, 0.8); 
   border-radius: 8px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); 
+  position: absolute; 
+  left: 50%; 
+  transform: translateX(-50%); 
 }
+
 
 .additional-text-container h2 {
   font-size: 2rem;
@@ -291,4 +296,23 @@ button {
   line-height: 1.6;
   margin-bottom: 1rem;
   text-align: justify;
+}
+
+.spacer {
+  position: absolute;
+  top: 175%;
+  left: 50%;
+  height: 100px; 
+  width: 100%; 
+  background-color: transparent;
+}
+
+#particles-js {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; 
+  pointer-events: none; 
 }
