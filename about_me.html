@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>About Me</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
@@ -13,19 +13,35 @@
     <div id="particles-js"></div>
     <div class="blur-overlay"></div>
     <div class="head-container">
-        <a href="website.html" class="home-button head-element">MVO</a>
+        <a href="index.html" class="home-button head-element">MVO</a>
     </div>
-    <div class="text-items-container">
-      <a href="resume.html" class="text-item head-element">Resume</a>
+    <div class="head-container">
+      <a href="index.html" class="home-button head-element">MVO</a>
+  </div>
+
+  <!-- Toggle button for mobile dropdown -->
+  <div class="menu-toggle">+</div>
+  
+  <div class="text-items-container hidden">
+      <a href="about_me.html" class="text-item head-element">About Me</a>
       <a href="portfolio.html" class="text-item head-element">Portfolio</a>
       <div class="text-item head-element dropdown">
-        More
-        <div class="dropdown-content">
-            <a href="https://www.linkedin.com/in/mason-o-14534b294/">LinkedIn</a>
-            <a href="https://github.com/masonvoff">Github</a>
-        </div>
-    </div>
+          More
+          <div class="dropdown-content">
+              <a href="https://www.linkedin.com/in/mason-o-14534b294/">LinkedIn</a>
+              <a href="https://github.com/masonvoff">Github</a>
+          </div>
+      </div>
   </div>
+
+  <!-- JavaScript to handle dropdown toggle -->
+  <script>
+      
+      document.querySelector('.menu-toggle').addEventListener('click', () => {
+          const menu = document.querySelector('.text-items-container');
+          menu.classList.toggle('hidden');
+      });
+  </script>
   <h2 class="intro-text">Learn a little about me below</h2>
   <div id="tile_container_1"  class="tile-container">
     <button id="leftArrow" class="arrow-button" style="left: 10px;">&#9664;</button>
@@ -34,45 +50,45 @@
             <img src="Pictures/grad pic 2.jpg" alt="My graduation picture" />
             <h4>This is a picture for my graduation from the University of Miami, I graduated
               on May 10th 2024.  UM was my dream university and I am very thankful that I had the opportunity to attend.
-              I originaly started college at CU Denver but knew that Miami is where I wanted to be.
+              I originally started college at CU Denver but knew that Miami is where I wanted to be.
             </h4>
           </div>
           <div class="child">
             <img src="Pictures/me and avery.jpg" alt="Me and my niece" />
             </svg>
-            <h4>This is my neice Avery she was born in september of 2023.
-                This is a picutre of one of the first times I was able to hold her.</h4>
+            <h4>This is my niece Avery she was born in September of 2023.
+                This is a picture of one of the first times I was able to hold her.</h4>
           </div>
           <div class="child">
               <img src="Pictures/basketball 2.jpg" alt="Me playing basketball" />
-            <h4>This is a picture of me playing basketball in highschool, I don't 
+            <h4>This is a picture of me playing basketball in high school, I don't 
               follow the sport much anymore, but I still like to play from time to time.
             </h4>
           </div>
           <div class="child">
-            <img src="Pictures/sphere ufc.jpg" alt="Ufc sphere" />
+            <img src="Pictures/sphere ufc.jpg" alt="UFC sphere" />
             <h4>This is a photo from my trip to the sphere, my friend, father, and I 
               went to UFC 306 in the sphere in Las Vegas.  MMA is my favorite sport currently
-            and this was a one time event so we made sure to be there.
+            and this was a one-time event so we made sure to be there.
             </h4>
           </div>
           <div class="child">
             <img src="Pictures/cote.jpg" alt="Cote resturant" />
-            <h4>This picture comes from Cote my favorite resturant, it is located in Miami.
+            <h4>This picture comes from Cote my favorite restaurant; it is located in Miami.
               This was for my graduation dinner with many of my friends.
             </h4>
           </div>
           <div class="child">
-            <img src="Pictures/disney castle.jpg" alt="Disney castle" />
-            <h4>This is a photo of me and my girlfriend at Disney World for the 50th aniversary.</h4>
+            <img src="Pictures/Disney castle.jpg" alt="Disney castle" />
+            <h4>This is a photo of me and my girlfriend at Disney World for the 50th anniversary.</h4>
           </div>
           <div class="child">
             <img src="Pictures/jamacia.jpg" alt="Sister wedding" />
-            <h4>this is me and my girlfriend once again, this was taken while we were in Jamacia 
-              for my sisters wedding.</h4>
+            <h4>This is me and my girlfriend once again; this was taken while we were in Jamacia 
+              for my sister’s wedding.</h4>
           </div>
           <div class="child">
-            <img src="Pictures/mexico.jpg" alt="family in mexico" />
+            <img src="Pictures/mexico.jpg" alt="family in Mexico" />
             <h4>This photo comes from a family trip to Mexico that my extended family and I went
               on in 2018.
             </h4>

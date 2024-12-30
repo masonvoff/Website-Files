@@ -5,22 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mason Offutt Resume</title>
     <link rel="stylesheet" href="CSS Files/style_resume.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
     <div class="head-container">
-        <a href="website.html" class="home-button head-element">MVO</a>
+        <a href="index.html" class="home-button head-element">MVO</a>
     </div>
-    <div class="text-items-container">
-      <a href="about_me.html" class="text-item head-element">About Me</a>
-      <a href="portfolio.html" class="text-item head-element">Portfolio</a>
-      <div class="text-item head-element dropdown">
-        More
-        <div class="dropdown-content">
-            <a href="https://www.linkedin.com/in/mason-o-14534b294/">LinkedIn</a>
-            <a href="https://github.com/masonvoff">Github</a>
+
+    <!-- Toggle button for mobile dropdown -->
+    <div class="menu-toggle">+</div>
+    
+    <div class="text-items-container hidden">
+        <a href="about_me.html" class="text-item head-element">About Me</a>
+        <a href="portfolio.html" class="text-item head-element">Portfolio</a>
+        <div class="text-item head-element dropdown">
+            More
+            <div class="dropdown-content">
+                <a href="https://www.linkedin.com/in/mason-o-14534b294/">LinkedIn</a>
+                <a href="https://github.com/masonvoff">Github</a>
+            </div>
         </div>
     </div>
-  </div>
+
+    <!-- JavaScript to handle dropdown toggle -->
+    <script>
+        
+        document.querySelector('.menu-toggle').addEventListener('click', () => {
+            const menu = document.querySelector('.text-items-container');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
+
     
     <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
 
@@ -41,7 +58,7 @@
         <div class="about">
           <span class="position">Software Developer </span>
           <span class="desc">
-            I am a recent graduate student from the University of Miami with experience in Python, C++, HTML, CSS, and Javascript.
+            I am a recent graduate student from the University of Miami with experience in Python, C++, HTML, CSS, and JavaScript.
           </span>
         </div>
       </div>
@@ -68,7 +85,7 @@
               </div>
               <div class="right">
                 <div class="name">Q/A Intern</div>
-                <div class="desc">Ensured the succeful deployment of a startup company website</div>
+                <div class="desc">Ensured the successful deployment of a startup company website</div>
               </div>
             </div>
     
@@ -113,8 +130,8 @@
              
              <div class="section__list-item">
                         <div class="name">This Website</div>
-               <div class="text">This website was a personal project of mine that I created to show my ability to learn new technoliges and apply them. 
-                    Prior to creating this website I had very little experience with front-end development.  I wanted this project to not only show skills,
+               <div class="text">This website was a personal project of mine that I created to show my ability to learn new technologies and apply them. 
+                    Prior to creating this website, I had very little experience with front-end development.  I wanted this project to not only show skills,
                     but also creativity.
                </div>
              </div>
@@ -125,7 +142,7 @@
            <div class="skills">
              <div class="skills__item">
                <div class="left"><div class="name">
-                 Javascript
+                 JavaScript
                </div>
              </div>
              
@@ -155,6 +172,8 @@
     </div>
 
     <div class="resume-download-text">Click the download button to download a copy of my more professional resume</div>
+
+
     <div class="resume-download-button-container">
         <a href="Mason Offutt Resume.pdf" download="Mason_Offutt_Resume.pdf" class="resume-download-button">Download Resume</a>
     </div>
