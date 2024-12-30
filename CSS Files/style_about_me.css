@@ -203,7 +203,6 @@ transform: translateX(-50%) translateY(-10px);
   background-size: 500% 500%; 
 }
 
-/* Rotate the gradient colors */
 @keyframes rotateColors {
   0% {
       background-position: 0% 50%;
@@ -269,9 +268,9 @@ transform: translateX(-50%) translateY(-10px);
 
 .child {
   display: flex;
-  justify-content: center; /* Center items vertically within the container */
-  align-items: center; /* Center items horizontally */
-  flex-direction: column; /* Stack children vertically */
+  justify-content: center; 
+  align-items: center; 
+  flex-direction: column; 
   min-width: 60vw;
   height: 80%;
   border-radius: 16px;
@@ -282,8 +281,8 @@ transform: translateX(-50%) translateY(-10px);
   color: white;
   animation: changeColors 5s step-end infinite, rotateColors 5s ease-out infinite alternate;
   background-size: 500% 500%;
-  gap: 20px; /* Add consistent gap between children */
-  position: relative; /* Ensure `img` and `h4` are positioned relative to .child */
+  gap: 20px; 
+  position: relative;
 }
 
 /* Rotate the gradient colors */
@@ -299,12 +298,12 @@ transform: translateX(-50%) translateY(-10px);
 /* Change the gradient colors */
 @keyframes changeColors {
   0%, 100% {
-    background-image: linear-gradient(90deg, black, #000026); /* First color set */
+    background-image: linear-gradient(90deg, black, #000026); 
   }
 }
 .child img {
-  position: relative; /* No absolute positioning for flexibility */
-  margin-top: 0; /* Reset margin */
+  position: relative; 
+  margin-top: 0; 
   max-height: 40vh; 
   width: auto;
   height: auto; 
@@ -314,7 +313,7 @@ transform: translateX(-50%) translateY(-10px);
 }
 
 .child h4 {
-  margin-top: 0; /* Reset margin */
+  margin-top: 0;
   max-width: 60%;
   text-align: center;
 }
@@ -404,7 +403,7 @@ button {
       margin: 25px 0; 
   }
 
-  /* Hidden state for the dropdown */
+ 
   .text-items-container.hidden {
       height: 0;
       padding: 0;

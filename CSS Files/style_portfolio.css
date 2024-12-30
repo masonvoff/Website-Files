@@ -3,7 +3,7 @@ body {
     z-index: -1;
     margin: 0;
     height: 100vh;
-    background: rgb(15, 15, 15); /* Base background color */
+    background: rgb(15, 15, 15); 
     font-size: 5vmin;
     color: transparent;
   }
@@ -22,7 +22,7 @@ body {
     z-index: -1;
   }
   
-  /* Add the dots effect with varying delays */
+  
   body::before {
     text-shadow: var(--dots);
     animation-duration: 25s;
@@ -73,7 +73,7 @@ body {
     left: 0;
     width: 200%;
     height: 200%;
-    backdrop-filter: blur(10px); /* Adjust the blur intensity */
+    backdrop-filter: blur(10px); 
     z-index: -1;
   }
 
@@ -299,6 +299,9 @@ body {
       .card-description {
           font-size: 12px;
       }
+      .card-title{
+        font-size: 24px;
+      }
     }
     .text-items-container {
       position: fixed;
@@ -319,7 +322,7 @@ body {
         margin: 25px 0; 
     }
   
-    /* Hidden state for the dropdown */
+    
     .text-items-container.hidden {
         height: 0;
         padding: 0;
